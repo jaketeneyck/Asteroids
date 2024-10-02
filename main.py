@@ -21,6 +21,10 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+            
+
+        # Make any object changes 
+        player.update(dt)
 
         # Re-render the screen
         screen.fill((0,0,0))
