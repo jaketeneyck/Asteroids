@@ -1,5 +1,5 @@
 import pygame
-from asteroids.constants import *
+from constants import *
 
 def main():
     # Initialize pygame and set the game window size
