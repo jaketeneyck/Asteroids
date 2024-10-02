@@ -15,6 +15,12 @@ def main():
     # Create player object
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
+    # Create groups
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+    updatable.add(player)
+    drawable.add(player)
+
     # Main game loop
     while True:
         # Check that the player hasn't quit the game, quit if yes
@@ -24,7 +30,10 @@ def main():
             
 
         # Make any object changes 
-        player.update(dt)
+        for item in updatable:
+            item.update(dt)
+        for item in drawable:
+            item.draw(screen)
 
         # Re-render the screen
         screen.fill((0,0,0))
