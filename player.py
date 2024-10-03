@@ -4,7 +4,7 @@ from circleshape import *
 
 class Player(CircleShape):
 
-    containers = ("updatable", "drawable")
+    containers = ()
 
     def __init__ (self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
@@ -31,6 +31,13 @@ class Player(CircleShape):
     def move(self, dt):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         self.position += forward * PLAYER_SPEED * dt
+
+
+    def checkCollision(self, other):
+        if self.position.distance_to(other.position) > (self.radius + other.radius):
+            return False
+        else:
+            return True
 
 
     def update(self, dt):

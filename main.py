@@ -35,12 +35,18 @@ def main():
             
         # Fill the screen black       
         screen.fill((0,0,0))
-        
+
         # Make any object changes 
         for item in updatable:
             item.update(dt)
         for item in drawable:
             item.draw(screen)
+
+        # Check if any asteroids have hit the player, if yes then end
+        for item in asteroids:
+            if item.checkCollision(player):
+                print("Game over!")
+                exit()
 
         # Re-render the screen
 
