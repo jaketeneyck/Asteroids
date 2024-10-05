@@ -55,7 +55,7 @@ def main():
         for item in asteroids:
             for s in shots:
                 if s.checkCollision(item):
-                    item.kill()
+                    item.split()
                     s.kill()
 
         # Re-render the screen
